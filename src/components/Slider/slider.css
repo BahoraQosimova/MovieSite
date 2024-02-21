@@ -1,0 +1,46 @@
+.mySwiper {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px rgba(30, 28, 28, 0.134);
+}
+.swiperItem {
+  height: 100%;
+  width: 100%;
+}
+.swiperItem img {
+  height: 100%;
+  width: 100%;
+}
+.description {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px;
+  padding: 0;
+}
+.toLocate {
+  display: flex;
+  gap: 20px;
+  box-sizing: border-box;
+}
+button {
+  background-color: transparent;
+  border-radius: 20px;
+  border: none;
+  box-sizing: border-box;
+  color: white;
+  padding-bottom: 5px;
+  box-shadow: 0 0 10px 5px rgba(30, 28, 28, 0.134);
+}
+.showData {
+  border: 20px;
+  box-sizing: border-box;
+}
