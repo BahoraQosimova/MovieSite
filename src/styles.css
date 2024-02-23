@@ -183,7 +183,7 @@ a {
 }
 .search_status li img {
   width: 70px;
-  object-fit: cover;
+  object-fit: cover ;
 }
 .search_status li h1 {
   font-size: 1rem;
