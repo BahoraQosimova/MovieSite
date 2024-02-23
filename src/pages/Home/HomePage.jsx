@@ -1,4 +1,4 @@
-import Slider from "../../componenets/Slider/Slider";
+import Slider from "../../components/Slider/Slider";
 import TopRated from "../../components/TopRated/TopRated";
 import Upcoming from "../../components/UpComing/UpComing";
 
