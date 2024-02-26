@@ -1,7 +1,7 @@
 import { Home, InfoPage, SinglePage } from "./pages/index";
 import {
   Header,
-  Search
+  Search,
   InfoBy,
   Loading,
   Similar,
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Header />
-  
+
       <Routes>
         <Route element={<Loading />} path="/about/:id" />
         <Route element={<Search />} path="/search/:id" />

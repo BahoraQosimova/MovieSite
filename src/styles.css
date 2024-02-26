@@ -183,7 +183,7 @@ a {
 }
 .search_status li img {
   width: 70px;
-  object-fit: cover ;
+  object-fit: cover;
 }
 .search_status li h1 {
   font-size: 1rem;
@@ -196,3 +196,24 @@ a {
   align-items: center;
   cursor: default !important;
 }
+.according_container {
+  margin: 40px 0;
+}
+.according_box {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  color: #fff;
+  background-color: rgb(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.according_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* .according_answer{
+
+} */
