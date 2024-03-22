@@ -1,35 +1,13 @@
-import { Home, InfoPage, SinglePage } from "./pages/index";
-import {
-  Header,
-  Search,
-  InfoBy,
-  Loading,
-  Similar,
-  Slider,
-  TopRated,
-  Upcoming,
-  Footer,
-} from "./components/index";
-import { Routes } from "react-router";
-import { Route } from "react-router";
+import { Header, Footer } from "./components/index";
+
+// import { HomePage, AboutPage, InfoPage } from "./pages/index";
+import { Routing } from "./libs";
+import "./styles.css";
 function App() {
   return (
     <>
       <Header />
-
-      <Routes>
-        <Route element={<Loading />} path="/about/:id" />
-        <Route element={<Search />} path="/search/:id" />
-        <Route element={<Home />} path="/" />
-        {/* <Route element={<About />} path="/about" /> */}
-        <Route element={<InfoPage />} path="/about/" />
-        <Route element={<SinglePage />} path="/singlePage" />
-        <Route element={<Similar />} path="/similar" />
-        <Route element={<Slider />} path="/" />
-        <Route element={<TopRated />} path="/top" />
-        <Route element={<Upcoming />} path="/soon" />
-        <Route element={<InfoBy />} path="/about" />
-      </Routes>
+      <Routing />
       <Footer />
     </>
   );

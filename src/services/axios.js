@@ -7,7 +7,7 @@ export const privateApi = axios.create({
   baseURL: baseURL,
   headers: {
     "Content-Type": "application/json",
-    Authorization: "Bearer ${token}",
+    Authorization: `Bearer ${token}`,
   },
 });
 privateApi.interceptors.request.use(async (config) => {

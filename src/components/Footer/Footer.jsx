@@ -1,35 +1,85 @@
-import Logo from "../../assets/Logo.png";
 import "./footer.css";
-const Footer = () => {
+
+function Footer() {
   return (
     <footer className="footer">
-      <div className="footer_container">
-        <div className="img_logo">
-          <img src={Logo} alt="" />
-        </div>
-        <div className="footer_content">
-          <div className="content">
-            <h1 className="content_text">Home</h1>
-            <h3 className="content_text">About</h3>
-            <h3 className="content_text">About Us</h3>
-            <h3 className="content_text">Our team</h3>
+      <div className="container">
+        <div className="row">
+          <div className="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li>
+                <a href="#">about us</a>
+              </li>
+              <li>
+                <a href="#">our services</a>
+              </li>
+              <li>
+                <a href="#">privacy policy</a>
+              </li>
+              <li>
+                <a href="#">affiliate program</a>
+              </li>
+            </ul>
           </div>
-          <div className="content">
-            <h1 className="content_text">Partners</h1>
-            <h3 className="content_text">Our Project</h3>
-            <h3 className="content_text">Social Media</h3>
-            <h3 className="content_text">Others</h3>
+          <div className="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li>
+                <a href="#">FAQ</a>
+              </li>
+              <li>
+                <a href="#">shipping</a>
+              </li>
+              <li>
+                <a href="#">returns</a>
+              </li>
+              <li>
+                <a href="#">order status</a>
+              </li>
+              <li>
+                <a href="#">payment options</a>
+              </li>
+            </ul>
           </div>
-
-          <div className="content">
-            <h1 className="content_text">Support</h1>
-            <h3 className="content_text">Support Request</h3>
-            <h3 className="content_text">Contact</h3>
+          <div className="footer-col">
+            <h4>Movies</h4>
+            <ul>
+              <li>
+                <a href="#">About us</a>
+              </li>
+              <li>
+                <a href="#">Soon ...</a>
+              </li>
+              <li>
+                <a href="#">Similar</a>
+              </li>
+              <li>
+                <a href="#">Others</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>follow us</h4>
+            <div className="social-links">
+              <a href="#">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

@@ -1,8 +1,8 @@
-import { components } from "react";
-import { privateApi } from "./axios";
+import { Component } from "react";
 import { endPoint } from "./endPoint";
+import { privateApi } from "./Axios";
 
-class Movie extends components {
+class Movie extends Component {
   async getNewMovies(id) {
     try {
       const response = await privateApi.get(endPoint.getNewMovies(id));

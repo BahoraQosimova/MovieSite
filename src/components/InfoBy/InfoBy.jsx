@@ -1,5 +1,5 @@
 import { Swiper } from "swiper/react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 // import { Autoplay } from "swiper/modules";
 
 const InfoBy = ({ title, children }) => {
@@ -20,10 +20,10 @@ const InfoBy = ({ title, children }) => {
     </section>
   );
 };
-InfoBy.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.array,
-};
+// InfoBy.propTypes = {
+//   title: PropTypes.string,
+//   children: PropTypes.array,
+// };
 export default InfoBy;
 // {top.slice(0, 10).map((item) => (
 //     <SwiperSlide key={item.id}>

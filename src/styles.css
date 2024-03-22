@@ -6,7 +6,7 @@ a {
   text-decoration: none;
 }
 body {
-  background-color: #0c0c0c;
+  background-color: rgb(56, 50, 50);
 }
 header {
   height: 100px;
@@ -139,7 +139,7 @@ a {
   display: flex;
   gap: 5px;
 }
-.rated_slides {
+/* .rated_slides {
   margin-top: 20px;
   width: auto;
   height: 450px;
@@ -158,7 +158,7 @@ a {
 .rated_box {
   width: 250px;
   height: 350px;
-}
+} */
 .search {
   position: absolute;
   width: 200px;

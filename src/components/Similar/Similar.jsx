@@ -1,6 +1,5 @@
-import React from "react";
-import { Movie } from '../../services/serviceApi';
 import { useEffect, useState } from "react";
+import Movie from "../../services/serviceApi";
 const Similar = ({ movieId }) => {
   const [dataSimilary, setSimilary] = useState(null);
   useEffect(() => {

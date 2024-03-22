@@ -1,14 +1,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-import { privateApi } from "../../services/axios";
 import { useEffect, useState } from "react";
-
+import Loading from "../Loading/Loading";
+import "./slider.css";
 import { Link } from "react-router-dom";
-import { Audio } from "react-loader-spinner";
-import { imageW500 } from "../../utils/ImageURL";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-const Slider = ({ data, ganresData, isLoading }) => {
+import { privateApi } from "../../services/Axios";
+
+const Slider = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [banner, setBanner] = useState([]);
 
   const getData = async () => {
@@ -24,68 +28,58 @@ const Slider = ({ data, ganresData, isLoading }) => {
   useEffect(() => {
     getData();
   }, []);
-  {
-    data?.results?.map((item, idx) => {
-      const list = item?.genre_ids;
-      const FilteredList = list.map((item) =>
-        ganresData?.genres?.find((ganresId) => ganresId?.id === item)
-      );
-    });
-  }
 
   return (
-    <>
-      <Swiper>
-        <SwiperSlider key={item.id} className="slider_box">
-          {!isLoading ? (
-            <>
-              <img src={imageW500(item?.backdrop_path)} alt="" />
-              <div className="slide_content">
-                <div className="slide_item">
-                  <h1>{item?.original_title}</h1>
-                  <p>
-                    {item?.overview?.length > 65 &&
-                      item?.overview?.slice(0, 65) + "..."}
-                  </p>
-                  <div className="slide_calendar" key={item?.id}>
-                    <FontAwesomeIcon icon={faCalendarAlt} />
-                    <p>{item?.release_data}</p>
-                    {FilteredList.map((item) => (
-                      <p key={item?.id}>
-                        {item?.name}
-                        {FilteredList[FilteredList.length - 1]?.name ===
-                        item?.name
-                          ? " "
-                          : " / "}
-                      </p>
-                    ))}
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{
+        dynamicBullets: true,
+      }}
+      loop
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      className="mySwiper"
+    >
+      {!isLoading ? (
+        banner?.slice(0, 10).map((item, idx) => {
+          return (
+            <SwiperSlide className="swiperItem" key={idx}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
+                alt="rasmcha"
+              />
+
+              <div className="description">
+                <h1 className="title">{item?.title}</h1>
+
+                <p className="desc">{`${item?.overview.slice(0, 50)} . . .`}</p>
+
+                <div className="toLocate">
+                  <div className="showData">
+                    {item?.release_date.replaceAll("-", "/")}
                   </div>
+
                   <Link
-                    to={
-                      'about/${item?.id}-${item?.title.replaceAll(" ", "-").toLowerCase()}'
-                    }
+                    to={`/singlePage/${item?.title
+                      ?.replaceAll(" ", "-")
+                      .toLowerCase()}-${item?.id}`}
                   >
-                    <button>Show more...</button>
+                    <button>show more</button>
                   </Link>
                 </div>
               </div>
-            </>
-          ) : (
-            <Audio
-              height="80"
-              width="80"
-              radius="9"
-              color="green"
-              ariaLabel="loading"
-              wrapperStyle
-              wrapperClass="audio-wrapper"
-            />
-          )}
-        </SwiperSlider>
-        );
-        {/* })} */}
-      </Swiper>
-    </>
+            </SwiperSlide>
+          );
+        })
+      ) : (
+        <Loading />
+      )}
+    </Swiper>
   );
 };
 

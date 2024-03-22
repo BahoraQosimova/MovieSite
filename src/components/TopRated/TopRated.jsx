@@ -1,31 +1,31 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
-import { privateApi } from "../../services/axios";
-// import "./topRated.css";
+import "./toprated.css";
 import { Link } from "react-router-dom";
+import Movie from "../../services/serviceApi";
 
 const TopRated = () => {
   const [rated_image, setRated] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const getTopData = async () => {
-    try {
-      const datas = await privateApi.get("movie/top_rated");
-      setRated(datas.results);
-      console.log(rated_image);
-    } catch (error) {
-      throw error;
-    }
+  const getTopMovies = async () => {
+    setIsLoading(true);
+    const movies = await new Movie().getTopData();
+    setIsLoading(false);
+    setRated(movies);
   };
+
   useEffect(() => {
-    getTopData();
+    getTopMovies();
   }, []);
+
   return (
     <div className="top_rated">
       <h2>TOP_RATED</h2>
       <div className="top_rated-slider">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={(Navigation, Pagination, Autoplay)}
           spaceBetween={50}
           slidesPerView={3}
           pagination={{
@@ -36,11 +36,13 @@ const TopRated = () => {
             delay: 3000,
             disableOnInteraction: false,
           }}
-          // className="mySwiper"
         >
-          {/* {rated_image.slice(1, 10).map((item, idx) => {
+          {rated_image?.slice(1, 10).map((item, idx) => {
             return (
-              <SwiperSlide key={idx} className="top_item">
+              <SwiperSlide
+                key={idx}
+                className={isLoading ? "top_item active" : "top_item"}
+              >
                 <Link
                   to={`/singlePage/${item?.title
                     ?.replaceAll(" ", "-")
@@ -48,13 +50,12 @@ const TopRated = () => {
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
-                    alt=""
                   />
-                  <h3 className="description">{item.title}</h3>
+                  <h3 className="description">{item?.title}</h3>
                 </Link>
-              </SwiperSlide> */}
-            {/* );
-          })} */}
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </div>

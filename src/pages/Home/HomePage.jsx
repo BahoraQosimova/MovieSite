@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Slider from "../../components/Slider/Slider";
-import TopRated from "../../components/TopRated/TopRated";
 import Upcoming from "../../components/UpComing/UpComing";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { TopRated } from "../../components";
 
 const accordingData = [
   {
@@ -12,11 +12,23 @@ const accordingData = [
   },
 ];
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+      return { count: state.count + 1 };
+    case "DECREMENT":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
 
-  const handleclick = (idx) => {
-    setActiveIndex(activeIndex === idx ? null : idx);
+  const handleclick = (id) => {
+    setActiveIndex(activeIndex === id ? null : id);
   };
 
   return (
