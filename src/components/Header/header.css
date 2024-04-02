@@ -6,6 +6,16 @@ header {
   justify-content: space-around;
   margin-bottom: 30px;
 }
+@media screen and (width > 250px) {
+  header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+}
 .header_logo {
   height: 100%;
   width: 100px;

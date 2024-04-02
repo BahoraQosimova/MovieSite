@@ -1,3 +1,9 @@
+@media screen and (max-width: 250px) {
+  .searching {
+    width: 80px;
+    height: 80px;
+  }
+}
 .searching {
   display: flex;
   flex-direction: column;
