@@ -11,15 +11,16 @@ const TopRated = () => {
 
   const getTopMovies = async () => {
     setIsLoading(true);
-    const movies = await new Movie().getTopData();
+    const { response } = await new Movie().getTopData();
     setIsLoading(false);
-    setRated(movies);
+    setRated(response);
   };
 
   useEffect(() => {
     getTopMovies();
   }, []);
 
+  console.log(rated_image);
   return (
     <div className="top_rated">
       <h2>TOP_RATED</h2>
@@ -37,7 +38,7 @@ const TopRated = () => {
             disableOnInteraction: false,
           }}
         >
-          {rated_image?.slice(1, 10).map((item, idx) => {
+          {rated_image?.results?.slice(1, 10).map((item, idx) => {
             return (
               <SwiperSlide
                 key={idx}

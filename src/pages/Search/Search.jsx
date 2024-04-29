@@ -16,6 +16,8 @@ const SearchingPage = () => {
     console.log(searchedMovies);
   };
 
+  console.log(searchedMovies);
+
   useEffect(() => {
     searchById();
   }, [chosenGenre]);

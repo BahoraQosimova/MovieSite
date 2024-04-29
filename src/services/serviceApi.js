@@ -14,10 +14,10 @@ class Movie extends Component {
 
   async getTopData(id) {
     try {
-      const response = await privateApi.get(endPoint.getTopData(id));
-      return response.data;
+      const response = await privateApi.get(endPoint.top_rated);
+      return { response };
     } catch (error) {
-      throw error;
+      throw { error };
     }
   }
 
@@ -41,10 +41,10 @@ class Movie extends Component {
 
   async getSearchResult(query) {
     try {
-      const response = await privateApi.get(endPoint.getSearchResult(query));
-      return response.data;
+      const response = await privateApi.get(endPoint.searchMovie(query));
+      return { response };
     } catch (error) {
-      throw error;
+      throw [error];
     }
   }
 }

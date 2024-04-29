@@ -33,6 +33,9 @@ const HomePage = () => {
 
   return (
     <>
+      <Slider />
+      <TopRated />
+      <Upcoming />
       <div className="accordian_container">
         {accordingData.map((item, idx) => (
           <div
@@ -52,10 +55,6 @@ const HomePage = () => {
           </div>
         ))}
       </div>
-
-      <Slider />
-      <TopRated />
-      <Upcoming />
     </>
   );
 };
