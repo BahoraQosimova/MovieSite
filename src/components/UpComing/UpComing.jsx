@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
-import { privateApi } from "../../services/Axios";
+// import { privateApi } from "../../services/Axios";
 
 const Upcoming = () => {
   const [newMovie, setNewMovie] = useState([]);
 
   const newMovies = async () => {
-    const movies = await privateApi.get("movie/upcoming");
+    // const movies = await privateApi.get("movie/upcoming");
     setNewMovie(movies.results);
     console.log(newMovie);
   };

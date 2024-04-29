@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Slider from "../../components/Slider/Slider";
-import Upcoming from "../../components/UpComing/UpComing";
+// import Upcoming from "../../components/UpComing/UpComing";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { TopRated } from "../../components";
 
@@ -35,7 +35,7 @@ const HomePage = () => {
     <>
       <Slider />
       <TopRated />
-      <Upcoming />
+      {/* <Upcoming /> */}
       <div className="accordian_container">
         {accordingData.map((item, idx) => (
           <div
